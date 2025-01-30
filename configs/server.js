@@ -8,16 +8,17 @@ import express from "express";
 const configs = (app) => {
     app.use(helmet());
     app.use(cors());
-    app.use(morgan('dev'));
+    app.use(morgan("dev"));
 };
 
 export const initServer = () => {
     const app = express();
+    const timeInit = Date.now();
     try{
         configs(app);
-        const timeInit = Date.now().toString().slice(10);
         app.listen(process.env.PORT);
-        console.log(`Server running on port ${process.env.PORT} ${timeInit}ms`);
+        const elapsedTime = Date.now() - timeInit;
+        console.log(`Server running on port ${process.env.PORT} ${elapsedTime}ms`);
     }catch(err){
         console.log(`Server failed to start: ${err}`);
     }
