@@ -7,6 +7,7 @@ import express from "express";
 import { connectionDB } from "./mongo.js";
 import authRoutes from "../src/Auth/auth.routes.js"
 import userRoutes from "../src/user/user.routes.js"
+import petRoutes from "../src/pet/pet.routes.js"
 import apiLimiter from "../src/middlewares/validation-cant-peticiones.js";
 
 
@@ -23,6 +24,7 @@ const middlewares = (app) => {
 const routes = (app) =>{
     app.use("/adoptionSystem/v1/auth", authRoutes);
     app.use("/adoptionSystem/v1/user", userRoutes);
+    app.use("/adoptionSystem/v1/pet", petRoutes);
 }
 
 const connectionMongo = async() =>{
