@@ -12,7 +12,6 @@ export const registerPet = async(req, res) =>{
         return res.status(201).json({
             message: "Pet registration Succeful",
             name: pet.name,
-            owner: pet.owner.name
         });
 
     }catch(err){
@@ -102,10 +101,15 @@ export const updatePet = async (req, res) => {
             });
         }
 
+        const populatedPet = await updatedPet.populate({
+            path: "owner",
+            select: "name surname userName email phone"
+        });
+
         return res.status(200).json({
             success: true,
             message: "Information of Pet updated",
-            pet: updatedPet,
+            pet: populatedPet,
         });
 
     } catch (err) {

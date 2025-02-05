@@ -43,9 +43,10 @@ const petSchema = Schema({
 });
 
 petSchema.methods.toJSON = function(){
-    const{_v,status,_id,...pet} = this.toObject();
+    const { __v, status, _id, ...pet } = this.toObject();
     pet.uid = _id;
     return pet;
 };
+
 
 export default model("Pet", petSchema);
