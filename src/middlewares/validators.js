@@ -32,7 +32,7 @@ export const deleteUserValidator = [
     check("uid").custom(uidExist),
     validationsFields,
     deleteFileOnError
-]
+];
 
 export const updatePasswordValidator = [
     check("uid").isMongoId().withMessage("No es un Id de Mongo Válido"),
@@ -40,4 +40,5 @@ export const updatePasswordValidator = [
     body("newPassword").isLength({min: 8}).withMessage("La contraseñ a debe tener 8 carácteres"),
     validationsFields,
     deleteFileOnError
-]
+];
+
