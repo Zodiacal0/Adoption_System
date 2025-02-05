@@ -1,6 +1,6 @@
 import { Router } from "express";
-import {registerPet , deletePet} from "./pet.controller.js";
-import { registerPetValidator , deletePetValidator} from "../middlewares/petValidators.js";
+import {registerPet , deletePet, updatePet} from "./pet.controller.js";
+import { registerPetValidator , deletePetValidator , updatePetValidator} from "../middlewares/petValidators.js";
 import { uploadProfilePicture } from '../middlewares/multer-uploads.js';
 import { deleteFileOnError } from '../middlewares/delete-file-error.js';  
 
@@ -20,6 +20,12 @@ router.delete(
     "/deletePet/:uid",
     deletePetValidator,
     deletePet
+);
+
+router.put(
+    "/updatePet/:uid",
+    updatePetValidator,
+    updatePet
 )
 
 export default router;

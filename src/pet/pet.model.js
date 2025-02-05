@@ -31,8 +31,8 @@ const petSchema = Schema({
     },
     status: {
         type: String,
-        required: true,
-        enum: ["ADOPTED","NO_ADOPTED"]
+        enum: ["ADOPTED","NO_ADOPTED"],
+        default: "NO_ADOPTED"
     },
     owner:{
         type: Schema.Types.ObjectId,

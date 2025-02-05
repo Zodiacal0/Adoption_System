@@ -8,19 +8,19 @@ export const getUserById = async (req,res) =>{
 
         if(!user){
             return res.status(404).json({
-                succes: false,
+                success: false,
                 message: "User not found"
             })
         }
 
         return res.status(200).json({
-            succes: true,
+            success: true,
             user
         })
 
     }catch(err){
         return res.status(500).json({
-            succes: false,
+            success: false,
             message: "Error to obtain the user",
             error: err
         })
@@ -39,14 +39,14 @@ export const getUsers = async(req, res) =>{
         ])
 
         return res.status(200).json({
-            succes: true,
+            success: true,
             total,
             users
         })
 
     }catch(err){
         return res.status(500).json({
-            succes: false,
+            success: false,
             message: "Error to obtain the users",
             error: err
         })
